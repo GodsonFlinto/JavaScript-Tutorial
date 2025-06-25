@@ -102,3 +102,15 @@ console.log(joinedarr)
 
 joinedarr = [...farr,...sarr]  //spread operator
 console.log(joinedarr)
+
+//if-else 
+
+let age = 65;
+let gender = "male"
+if(age>50 && gender === "male"){
+    console.log("You can avail Discount")
+}
+else{
+    console.log("You can't")
+}
+console.log("Bye")
