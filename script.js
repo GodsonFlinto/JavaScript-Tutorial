@@ -114,3 +114,54 @@ else{
     console.log("You can't")
 }
 console.log("Bye")
+
+//for loop
+let i
+for(i=0; i<10; i++){
+    console.log(i)
+}
+
+//while loo
+i=10
+while(i>0){
+    console.log(i)
+    i--;
+}
+
+//do while loop
+i=10
+do{
+    console.log(i)
+    i--;
+}
+while(i>0)
+
+// while(true){
+//     let num = prompt("Enter a number: ")
+//     if(!isNaN(num))
+//         break
+// }
+
+arr = ['apple', 'orange', 'grapes' , 'banana']
+console.log(arr[1])
+
+for(i=0; i<arr.length; i++){
+    console.log(arr[i].toUpperCase())
+}
+
+//for of loop
+//easy way to access elements using this for loop
+for(let fruit of arr){
+    console.log(fruit)
+}
+
+//for in loop
+item = {
+    name : 'Godson',
+    age : 21,
+    native : 'Tuty',
+    sports : 'Cricket'
+}
+for(let key in item){
+    console.log(item[key])
+}
