@@ -165,3 +165,73 @@ item = {
 for(let key in item){
     console.log(item[key])
 }
+
+//normal function
+function volume(l,b,h){
+    return (l*b*h)
+}
+console.log(volume(2,3,4))
+
+//arrow function
+let volume2 = (l,b,h) => {return (l+b+h)}
+console.log(volume2(1,2,3))
+
+let area = r => Math.PI*r*r
+console.log(area(10))
+
+
+//rest parameter for 
+let prod = (...args) => {  //spread operator for multiple arguments
+    let fin = 1
+    for (val of args)
+        fin*=val
+    return fin
+}
+console.log(prod(1,2,3,4))
+
+//Generators - generates one by one
+function* indexGenerator(){
+    let index=1
+    while(true){
+        yield index++     //yield in place of return in generators
+    }
+}
+
+const gen = indexGenerator();
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
+
+//callback -> calling function using another function as parameter
+
+function greetconsole(name){
+    console.log('hello',name)
+}
+
+function greetheading(name){
+    document.querySelector("h1").innerHTML='hello '+name
+}
+
+function greet(callback){
+    callback('godson')
+}
+
+greet(greetconsole)
+greet(greetheading)
+
+//foreach -> function give inside the foreach is must
+arr = ['godson', 'flinto', 'jackson']
+
+arr.forEach(print)
+
+function print(val){
+    console.log(val)
+}
+
+arr.forEach(val => console.log(val.toUpperCase()))
+
+arr.forEach((val,index,arr) => {
+    arr[index] = val.toUpperCase()
+}) 
+console.log(arr)

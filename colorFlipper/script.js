@@ -21,9 +21,9 @@ function hexindex(){
 }
 
 let dept = ['ECE', 'IT', 'CSE', 'ISE', 'EEE']
-for(let i=0; i<dept.length; i++){
-    const dropdown = document.getElementById("a"+i)
-    dropdown.innerHTML = dept[i]
-    dropdown.value = dept[i]
-    dropdown.textContent = dept[i]
-}
+dept.forEach(val => {
+    let branch = document.createElement("option")
+    branch.value = val
+    branch.innerHTML = val
+    document.getElementById("deptm").appendChild(branch)
+});
