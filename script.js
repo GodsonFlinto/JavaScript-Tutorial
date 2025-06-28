@@ -306,3 +306,63 @@ let positive = inp.reduce((total,val) => {
     return total
 },0)
 console.log(positive)
+
+//closur -> gives you access to an outer function's scope from an inner function
+function makeAdder(x){
+    return function(y){
+        return x+y
+    }
+}
+let add = makeAdder(5)
+let tot = add(10)
+console.log(tot)
+
+//set -> collection of unique values
+let ary = [1,2,5,2,7,3,1]
+let hsset = new Set(ary)
+console.log(ary)
+console.log(hsset)
+
+let hsset2 = new Set()
+hsset2.add(3)
+hsset2.add(5)
+hsset2.add(4)
+hsset2.add('abc')
+hsset2.add({'a':1, 'b':2})
+hsset2.add({'a':1, 'b':2})  //this is not duplicate, because it is reference type
+
+console.log(hsset2)
+console.log(hsset.has(5))
+console.log(hsset.delete(1))
+console.log(hsset)
+
+let array2 = Array.from(hsset2)
+console.log(array2)
+
+//Map -> key-value pair, key in map occur only once, key or value can be object
+let map1 = new Map()
+map1.set('a',1)
+map1.set('b',1)
+map1.set('c',1)
+map1.set('a',5)   //duplicate key not allowed, so it replaces value 1 to 3
+console.log(map1)
+
+for(let i of map1)
+    console.log(i)
+
+for(let [k,v] of map1){
+    console.log(v)
+}
+
+for(let k of map1.keys())
+    console.log(k)
+
+map1.forEach((v,k)=>{
+    console.log('key:',k,'value:',v)
+})
+
+//2darray to map
+tdarr = [['a',10],['b',20]]
+let mp = new Map(tdarr)
+console.log(mp)
+console.log(...mp)  //map to 2darr using spread operator
