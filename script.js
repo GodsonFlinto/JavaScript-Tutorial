@@ -235,3 +235,74 @@ arr.forEach((val,index,arr) => {
     arr[index] = val.toUpperCase()
 }) 
 console.log(arr)
+
+//Map -> executes callback for each array element and return new array
+let priceUSD = [20,30,10]
+let priceINR = priceUSD.map(convert)
+
+function convert(val){
+    return val*83
+}
+console.log(priceINR)
+
+priceINR => priceUSD.map(val => val*83)
+console.log(priceINR)
+
+const input = [   //array of objects
+    {name:'Godson',age:20},
+    {name:'Jackson',age:21},
+    {name:'Flinto',age:25}
+]
+const inpmap = input.map(val => val.age)
+console.log(inpmap)
+
+//filter -> filter the array using condition and it must be inside the callback
+let cost = [1,2,3,4,5,6,7,8,9,10]
+let greatcost = cost.filter(val => val>4)
+console.log(greatcost)
+
+//reduce -> execute reducer callback and return the accumulated result
+
+let price = [100, 200, 250, 501]
+let totalprice = price.reduce((total,val) => total+val)  //we have to use two parameters here or 4, 1->accumulator, 2->each value 3->index 4->arr
+console.log(totalprice)
+
+let twod = [
+    ['a','b','c'],
+    ['c','d','a'],
+    ['b','e','a']
+]
+//result = {a:3,b:2,c:2,d:1,e:1}
+let count = twod.flat().reduce(
+    (accumulator,currVal) =>{
+        if(accumulator[currVal])
+            accumulator[currVal]++
+        else
+            accumulator[currVal]=1
+        return accumulator
+    },{} //{}->initializing
+)
+console.log(count)
+
+//exercise qns
+let st = "Robert Andrew George"
+let strArr = st.split(" ")
+let res = strArr.map(val => val.charAt(0))
+console.log(res.join(""))
+
+let dparr = [1,2,1,3,4,5,2,1,6]
+let unique = dparr.reduce((accum,val)=>{
+        if(!accum[val])
+            accum.push(val)
+        return accum
+    }
+,[])
+console.log(unique)
+
+let inp = [6,-5,7,-2,4,6,-1]
+let positive = inp.reduce((total,val) => {
+    if(val>0)
+        total+=val
+    return total
+},0)
+console.log(positive)
