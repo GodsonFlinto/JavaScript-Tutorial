@@ -367,3 +367,70 @@ let mp = new Map(tdarr)
 console.log(mp)
 console.log(...mp)  //map to 2darr using spread operator
 
+//promise -> the promise object represents the eventual completion or failure of an asynchronous operation
+
+function tatkalBooking(){
+    return new Promise((resolve, reject)=>{
+        let booking = true
+        if(booking)
+            resolve(100)
+        else
+            reject()
+    })
+}
+
+tatkalBooking().then((amt)=>console.log(`Successful, ${amt}`))    //then -> for resolve  catch -> for reject
+.catch(()=>console.log('Failure'))
+
+function tossCoin(){
+    return new Promise((resolve, reject)=>{
+        let toss = Math.floor(Math.random()%2)
+        if(toss==0)
+            resolve()
+        else
+            reject()
+    })
+}
+
+tossCoin()
+.then(()=>console.log("Heads"))
+.catch(()=>console.log("Tails"))
+
+function reach1(){
+    return new Promise((resolve, reject)=>{
+        let status = false
+        if(status)
+            setTimeout(resolve,2000,"Rahul reached")  // the third one in the bracket is the parameter for the resolve method => i.e. reslve("Rahul reached")
+        else
+            reject("Rahul not reached")
+    })
+}
+function reach2(){
+    return new Promise((resolve, reject)=>{
+        let status = true
+        if(status)
+            setTimeout(resolve,1000,"Jackson reached")
+        else
+            reject("Jackson not reached")
+    })
+}
+function reach3(){
+    return new Promise((resolve, reject)=>{
+        let status = true
+        if(status)
+            setTimeout(resolve,500,"Godson reached")
+        else
+            reject("Godson not reached")
+    })
+}
+
+//Promise -> pending, resolve, reject
+
+Promise.all([reach1(),reach2(),reach3()])
+.then((message)=>console.log(message))
+.catch((message)=>console.log(message))
+
+//Promise.all -> fullfills when all the promises fulfill, rejects when any of the promise rejects
+//Promise.allSettled -> fulfills when all the promises settled
+//Promise.any -> fulfills when any of the promise fulfills, rejects when all the promise rejects
+//Promise.race -> Settled when any of the promises settled (it may be fullfill or rejects)
