@@ -366,3 +366,4 @@ tdarr = [['a',10],['b',20]]
 let mp = new Map(tdarr)
 console.log(mp)
 console.log(...mp)  //map to 2darr using spread operator
+
