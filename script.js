@@ -434,3 +434,25 @@ Promise.all([reach1(),reach2(),reach3()])
 //Promise.allSettled -> fulfills when all the promises settled
 //Promise.any -> fulfills when any of the promise fulfills, rejects when all the promise rejects
 //Promise.race -> Settled when any of the promises settled (it may be fullfill or rejects)
+
+//Error handling -> try,catch,finally
+
+try {
+  let num = prompt("Enter a number: ");
+
+  if (num === null || num.trim() === "") {
+    throw "Input cannot be empty";
+  }
+
+  let value = Number(num);
+
+  if (isNaN(value)) {
+    throw "Enter a valid number";
+  }
+
+  console.log("Square is:", value ** 2);
+} catch (error) {
+  console.log("Error:", error);
+} finally {
+  console.log("Bye");
+}
