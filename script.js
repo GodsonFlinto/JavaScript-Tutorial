@@ -473,7 +473,7 @@ async function reachstatus() {
 }
 reachstatus()
 
-//JSON
+//JSON -> Javascript Object Notation
 
 let json1 = 350
 let json2 = "God is Great"
@@ -504,3 +504,45 @@ let parsed = JSON.parse(json6)
 console.log(parsed)
 console.log(parsed[0])
 console.log(JSON.stringify(parsed))
+
+//API
+//fetch -> always returns a promise
+fetch('https://official-joke-api.appspot.com/jokes/programming/random')
+.then((res)=>(res.json()))
+.then((msg)=>{console.log(msg[0].type,msg[0].punchline,msg[0].setup)})
+.catch((err)=>console.log(err))
+
+fetch('https://potterapi-fedeperin.vercel.app/en/spells')
+.then((res)=>{
+    if(res.ok)
+        console.log("Success")
+    else
+        console.log("Failure")
+   return res.json()
+})
+.then((msg)=>{
+    for(let i=0; i<5; i++){
+            console.log(msg[i].index, msg[i].spell,msg[i].use)}
+    }
+)
+.catch((err)=>{console.log(err)})
+
+//get request
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+
+//post request
+fetch('https://jsonplaceholder.typicode.com/todos',{
+    method : 'POST',
+    headers : {'Content-Type' : 'application/json'},
+    body : JSON.stringify({
+        name : 'Godson',
+        id : 3,
+        sports : 'Cricket'
+    })
+})
+.then(response => response.json())
+.then(json => console.log(json))
+.catch((err)=>console.log(err))
+
