@@ -472,3 +472,35 @@ async function reachstatus() {
     }
 }
 reachstatus()
+
+//JSON
+
+let json1 = 350
+let json2 = "God is Great"
+let json3 = true
+let json4 = [1,2,3,4,5]
+let json5 = {  //objects
+    "Name" : "Raina",
+    "Num" : 3
+}
+
+//array of objects
+let json6 = `[   
+    {
+        "Name" : "Raina",
+        "Num" : 3
+    },
+    {
+        "Name" : "Kohli",
+        "Num" : 18
+    },
+    {
+        "Name" : "Dhoni",
+        "Num" : 7
+    }
+]`
+console.log(json6)
+let parsed = JSON.parse(json6)
+console.log(parsed)
+console.log(parsed[0])
+console.log(JSON.stringify(parsed))
