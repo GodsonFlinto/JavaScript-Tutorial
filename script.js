@@ -437,22 +437,38 @@ Promise.all([reach1(),reach2(),reach3()])
 
 //Error handling -> try,catch,finally
 
-try {
-  let num = prompt("Enter a number: ");
+try{
+    //let num = prompt("Enter a number: ")
+    if(isNaN(num))
+        throw "Enter a valid Number"
+    if(num===' ')
+        throw 'Cannot be empty'
 
-  if (num === null || num.trim() === "") {
-    throw "Input cannot be empty";
-  }
-
-  let value = Number(num);
-
-  if (isNaN(value)) {
-    throw "Enter a valid number";
-  }
-
-  console.log("Square is:", value ** 2);
-} catch (error) {
-  console.log("Error:", error);
-} finally {
-  console.log("Bye");
+    console.log(num**2)
 }
+catch(error){
+    console.log(error)
+}
+finally{
+    console.log("Bye")
+}
+
+//async -> always return a promise
+async function Cricket() {
+    return "Playing"
+}
+console.log(Cricket())
+//Cricket().then((msg)=>{console.log(msg)})
+
+async function reachstatus() {
+    try{
+        console.log("Hii Godson")  //await pauses execution until the Promise is resolved.
+        let res = await reach2()   //await keyword only used inside async method
+        console.log(res)
+        console.log("Bye")
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+reachstatus()
