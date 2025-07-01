@@ -307,7 +307,7 @@ let positive = inp.reduce((total,val) => {
 },0)
 console.log(positive)
 
-//closur -> gives you access to an outer function's scope from an inner function
+//closure -> gives you access to an outer function's scope from an inner function
 function makeAdder(x){
     return function(y){
         return x+y
